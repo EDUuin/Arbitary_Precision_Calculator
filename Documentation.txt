@@ -1,0 +1,164 @@
+Name: Edwin Shaji Varghese
+Date: 07/01/2026
+
+Project Description:
+
+    The Arithmetic Precision Calculator (APC) is a tool designed to perform 
+    high-precision arithmetic operations on very large integers 
+    that exceed the limits of standard C data types.
+
+    Instead of using built-in numeric types, APC represents numbers using Doubly Linked Lists,
+    where each node stores a single digit.
+    This approach allows accurate arithmetic operations on arbitrarily large numbers without overflow.
+
+The calculator supports:
+
+    Addition
+    Subtraction
+    Multiplication
+    Division
+
+Key Features:
+
+    # Supports very large integers (no size limitation).
+    # Uses doubly linked list representation for numbers.
+    # Handles positive and negative operands.
+    # Implements manual arithmetic logic (carry, borrow, shifting).
+    # Ensures accurate results beyond standard int, long, or long long.
+    # Command-line based operation selection.
+    # Modular and well-structured function design.
+
+Supported Operations:
+
+    Addition (+)
+    Subtraction (-)
+    Multiplication (*)
+    Division (/)
+
+Functions
+01. check_operation_type
+
+    Determines which arithmetic operation is requested by the user.
+    Parses command-line arguments to identify the operator.
+    Returns the corresponding operation type.
+
+>>> INPUT HANDLING & VALIDATION
+02. read_and_validate_args
+
+    Validates user-provided operands and operator.
+    Checks for valid numeric input (digits and optional sign).
+    Extracts sign information and prepares data for processing.
+
+03. convert_number_to_list
+
+    Converts a numeric string into a doubly linked list.
+    Stores each digit in a separate node.
+    Maintains correct head and tail positioning.
+
+>>> CORE ARITHMETIC OPERATIONS
+--->ADDITION
+04. addition
+
+    Performs digit-by-digit addition from LSD to MSD.
+    Handles carry propagation correctly.
+    Supports operands of different lengths.
+    Produces a precise result list.
+
+--->SUBTRACTION
+05. subtraction
+
+    Performs digit-by-digit subtraction.
+    Handles borrow when required.
+    Compares operands to determine result sign.
+    Removes leading zeros from the result.
+
+06. compare_lists
+
+    Compares two numbers represented as linked lists.
+    Returns whether first number is greater, smaller, or equal.
+    Used in subtraction and division.
+
+--->MULTIPLICATION
+07. multiplication
+
+    Implements schoolbook multiplication algorithm.
+    Multiplies digits of one operand with another digit-by-digit.
+    Handles shifting (place value) using zero insertion.
+    Uses repeated addition to accumulate the result.
+    Handles carry propagation correctly.
+
+--->DIVISION
+08. division
+
+    Implements division using repeated subtraction.
+    Continuously subtracts divisor from dividend until remainder is smaller.
+    Counts the number of subtractions to compute quotient.
+    Handles division by zero safely.
+
+>>> HELPER / UTILITY FUNCTIONS
+09. insert_front
+
+    Inserts a digit node at the front of a linked list.
+    Used during arithmetic operations.
+
+10. insert_end
+
+    Inserts a digit node at the end of a linked list.
+    Useful while building numbers.
+
+11. remove_leading_zeros
+
+    Removes unnecessary leading zeros from result lists.
+    Ensures clean and correct output.
+
+12. is_zero
+
+    Checks whether a number represented as a linked list is zero.
+    Used in multiplication and division.
+
+13. copy_list
+
+    Creates a deep copy of a linked list.
+    Ensures original operands remain unchanged.
+
+14. increment_by_one
+
+    Increments a number (linked list) by one.
+    Used internally in division to update quotient.
+
+>>> OUTPUT HANDLING
+15. print_list
+
+    Prints the number stored in the linked list.
+    Correctly handles sign and formatting.
+
+
+Applications of APC:
+
+    # Performing arithmetic on extremely large integers.
+    # Educational tool for understanding internal arithmetic algorithms.
+    # Cryptography-related computations.
+    # Competitive programming practice.
+    # Financial calculations requiring high precision.
+    # Embedded systems where arbitrary precision is required.
+
+Advantages:
+
+    ✔ No overflow issues
+    ✔ Precise arithmetic
+    ✔ Modular and readable code
+    ✔ Easy to extend for new operations
+
+Limitations:
+
+    ⚠ Division implemented using repeated subtraction (slow for very large numbers)
+    ⚠ No floating-point or decimal support
+    ⚠ Only integer arithmetic supported
+
+Future Enhancements:
+
+    Implement long division algorithm for faster division.
+    Support for floating-point numbers.
+    Add modulus (%) operation.
+    Optimize multiplication using advanced algorithms.
+    Improve user interface and error messages.
